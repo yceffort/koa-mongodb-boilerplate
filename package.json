@@ -1,0 +1,36 @@
+{
+  "name": "koa-mongodb-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel --ignore src/__tests__ --out-dir lib src",
+    "server": "node lib/index.js",
+    "dev": "nodemon --exec 'npm run build && npm run server' --watch src",
+    "start": "NODE_ENV=production npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yceffort/koa-mongodb-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yceffort/koa-mongodb-boilerplate/issues"
+  },
+  "homepage": "https://github.com/yceffort/koa-mongodb-boilerplate#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^8.0.8",
+    "mongodb": "^3.5.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2"
+  }
+}
