@@ -8,25 +8,10 @@ export function insert({ collection, payload: { id, attributes }, options }) {
     .insertOne({ _id: id, ...attributes }, options)
 }
 
-export function insertMany({ collection, payloads, options }) {
-  return dbConnection()
-    .collection(collection)
-    .insertMany(
-      documents.map(({ id, ...attributes }) => ({ _id: id, ...attributes })),
-      options,
-    )
-}
-
-export function updateOne({ collection, id, attributes, options }) {
+export function update({ collection, id, attributes, options }) {
   return dbConnection()
     .collection(collection)
     .findOneAndUpdate({ _id: id }, { $set: attributes }, options)
-}
-
-export function updateMany({ collection, filter, update, options }) {
-  return dbConnection()
-    .collection(collection)
-    .updateMany(filter, update, options)
 }
 
 export function findOne({ collection, id }) {
@@ -37,9 +22,7 @@ export function findOne({ collection, id }) {
 }
 
 export function find({ collection, filter, options }) {
-  return dbConnection()
-    .collection(collection)
-    .find(filter, options)
+  return dbConnection().collection(collection).find(filter, options)
 }
 
 function convertID({ _id, ...rest }) {
